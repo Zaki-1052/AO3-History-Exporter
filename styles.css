@@ -1,0 +1,111 @@
+.ao3-history-explorer {
+  margin: 20px 0;
+  padding: 15px;
+  background: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'GNU Unifont', Verdana, Helvetica, sans-serif;
+}
+
+.ao3he-button {
+  padding: 8px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: #990000;
+  color: #000; /* Changed to black for better readability */
+  border: 1px solid #700;
+  border-radius: 3px;
+  font-weight: bold; /* Added for better visibility */
+}
+
+.ao3he-button:hover {
+  background-color: #700;
+}
+
+.ao3he-button:disabled {
+  background-color: #cc9999;
+  cursor: not-allowed;
+}
+
+.ao3he-progress-container {
+  margin-top: 15px;
+}
+
+.ao3he-progress-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.ao3he-progress-bar-container {
+  height: 20px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.ao3he-progress-bar {
+  height: 100%;
+  background-color: #5cb85c;
+  transition: width 0.3s ease;
+}
+
+.ao3he-progress-controls {
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+.ao3he-cancel-button {
+  padding: 5px 10px;
+  font-size: 12px;
+  background-color: #f0ad4e;
+  color: #000; /* Changed to black for better readability */
+  border: 1px solid #eea236;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: bold; /* Added for better visibility */
+}
+
+.ao3he-cancel-button:hover {
+  background-color: #ec971f;
+}
+
+.ao3he-status-message {
+  margin-top: 10px;
+  padding: 8px;
+  background-color: #f8f8f8;
+  border-left: 3px solid #f0ad4e;
+  color: #333; /* Darkened for better visibility */
+  font-style: italic;
+}
+
+.ao3he-download-container {
+  text-align: center;
+}
+
+.ao3he-download-options {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.ao3he-download-button,
+.ao3he-webapp-button {
+  text-decoration: none;
+  padding: 8px 15px;
+  display: inline-block;
+  background-color: #5cb85c;
+  color: #000; /* Changed to black for better readability */
+  border: 1px solid #4cae4c;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: bold; /* Added for better visibility */
+}
+
+.ao3he-download-button:hover,
+.ao3he-webapp-button:hover {
+  background-color: #449d44;
+}

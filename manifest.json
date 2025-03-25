@@ -1,0 +1,26 @@
+{
+    "manifest_version": 3,
+    "name": "AO3 History Explorer",
+    "version": "1.0",
+    "description": "Extract and analyze your AO3 reading history",
+    "icons": {
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "permissions": ["storage"],
+    "host_permissions": ["*://archiveofourown.org/*"],
+    "content_scripts": [
+      {
+        "matches": ["*://archiveofourown.org/users/*/readings*"],
+        "js": ["content.js"],
+        "css": ["styles.css"]
+      }
+    ],
+    "action": {
+      "default_icon": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png"
+      },
+      "default_title": "AO3 History Explorer"
+    }
+  }
