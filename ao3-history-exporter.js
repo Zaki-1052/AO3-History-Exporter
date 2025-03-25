@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         AO3 History Explorer
+// @name         AO3 History Exporter
 // @namespace    https://github.com/Zaki-1052/ao3-history-exporter
 // @version      1.0.0
 // @description  Extract and analyze your AO3 reading history with pause/resume functionality
