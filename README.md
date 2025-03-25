@@ -1,14 +1,14 @@
-# AO3 History Explorer
+# AO3 History Exporter
 
 A tool for exporting and analyzing your Archive of Our Own (AO3) reading history.
 
-![AO3 History Explorer](https://img.shields.io/badge/AO3-History%20Explorer-990000)
+![AO3 History Exporter](https://img.shields.io/badge/AO3-History%20Explorer-990000)
 ![Version](https://img.shields.io/badge/version-1.0.0-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 ## Overview
 
-AO3 History Explorer helps you export your entire AO3 reading history to a JSON file, allowing you to analyze your reading habits, search through past works, and create visualizations of your fan fiction preferences.
+AO3 History Exporter helps you export your entire AO3 reading history to a JSON file, allowing you to analyze your reading habits, search through past works, and create visualizations of your FanFiction preferences.
 
 This tool is available in two formats:
 - As a browser extension (for Chrome, Firefox, etc.)
