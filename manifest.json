@@ -1,8 +1,13 @@
 {
     "manifest_version": 3,
-    "name": "AO3 History Explorer",
+    "name": "AO3 History Exporter",
     "version": "1.0",
     "description": "Extract and analyze your AO3 reading history",
+    "browser_specific_settings": {
+      "gecko": {
+        "id": "ao3-history-exporter@zaki-1052.com"
+      }
+    },
     "icons": {
       "48": "icons/icon48.png",
       "128": "icons/icon128.png"
@@ -21,6 +26,6 @@
         "16": "icons/icon16.png",
         "48": "icons/icon48.png"
       },
-      "default_title": "AO3 History Explorer"
+      "default_title": "AO3 History Exporter"
     }
   }
