@@ -759,7 +759,7 @@
         
         // Open the web app with the data
         // Note: Replace with actual web app URL when available
-        window.open(`https://ao3-history-explorer.example.com/?data=${encodedData}`, '_blank');
+        window.open(`https://ao3-history.nazalibhai.com/?data=${encodedData}`, '_blank');
       });
     }
 

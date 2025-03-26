@@ -26,7 +26,11 @@ This tool is available in two formats:
   - Series information
 - **Pause/Resume Functionality**: Handle rate limiting by pausing the extraction and resuming later
 - **Partial Results**: Download partial results if the process is interrupted
-- **Web App Integration**: Exported data can be loaded into the upcoming web app for analysis (coming soon)
+- **Web App Integration**: Exported data can be loaded into a *live* web app for analysis
+  - **[ao3-history.nazalibhai.com](ao3-history.nazalibhai.com)**
+  - **How to Use**:
+    - Click the "**Open in Web App**" button when the export is finished.
+      - Your JSON file will automatically be loaded into the web app explorer.
 
 ## Installation
 
@@ -56,7 +60,7 @@ This tool is available in two formats:
 3. Wait while the tool processes each page of your reading history
 4. If you encounter rate limiting:
    - Click "Pause" to temporarily stop the process
-   - Wait for some time (recommended: at least 30-60 minutes)
+   - Wait for some time (recommended: at least 3-6 minutes)
    - Return to the page and click "Resume" to continue
 5. When complete, click "Download JSON" to save your data
 
@@ -65,7 +69,7 @@ This tool is available in two formats:
 AO3 may rate-limit requests if you have a very large reading history. Tips:
 - Use the pause feature when you notice errors
 - Try running the export during off-peak hours
-- Consider exporting in smaller batches by using pagination
+- Consider exporting in smaller batches every few minutes
 
 ## Technical Details
 
@@ -73,7 +77,6 @@ The tool works by:
 1. Scraping each page of your reading history
 2. Extracting structured data from the HTML
 3. Compiling all entries into a single JSON file
-4. Providing download options
 
 ### Project Structure
 
@@ -116,5 +119,4 @@ Contributions are welcome! If you'd like to improve the AO3 History Explorer:
 
 ## Acknowledgments
 
-- [Archive of Our Own (AO3)](https://archiveofourown.org/) for creating an amazing platform for fan works
-- All the writers who contribute their creativity to the archive
+- [Archive of Our Own (AO3)](https://archiveofourown.org/)
