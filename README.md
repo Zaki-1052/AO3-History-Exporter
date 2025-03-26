@@ -27,7 +27,7 @@ This tool is available in two formats:
 - **Pause/Resume Functionality**: Handle rate limiting by pausing the extraction and resuming later
 - **Partial Results**: Download partial results if the process is interrupted
 - **Web App Integration**: Exported data can be loaded into a *live* web app for analysis
-  - **[ao3-history.nazalibhai.com](ao3-history.nazalibhai.com)**
+  - **[ao3-history.nazalibhai.com](https://ao3-history.nazalibhai.com)**
   - **How to Use**:
     - Click the "**Open in Web App**" button when the export is finished.
       - Your JSON file will automatically be loaded into the web app explorer.
