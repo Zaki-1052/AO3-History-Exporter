@@ -35,38 +35,64 @@ function populateUIContainer(container) {
   progressContainer.className = 'ao3he-progress-container';
   progressContainer.style.display = 'none';
   
-  // In populateUIContainer function, modify the progress controls
-progressContainer.innerHTML = `
-<div class="ao3he-progress-info">
-  <span class="ao3he-progress-text">Preparing...</span>
-  <span class="ao3he-progress-percentage">0%</span>
-</div>
-<div class="ao3he-progress-bar-container">
-  <div class="ao3he-progress-bar" style="width: 0%"></div>
-</div>
-<div class="ao3he-progress-controls">
-  <button class="action ao3he-pause-button">Pause</button>
-  <button class="action ao3he-cancel-button">Cancel</button>
-</div>
-`;
-
-// Add event listener for pause button
-const pauseButton = progressContainer.querySelector('.ao3he-pause-button');
-pauseButton.addEventListener('click', togglePauseExtractionProcess);
+  // Create progress info
+  const progressInfo = document.createElement('div');
+  progressInfo.className = 'ao3he-progress-info';
   
-  // Add elements to the container
-  container.appendChild(button);
-  container.appendChild(progressContainer);
+  const progressText = document.createElement('span');
+  progressText.className = 'ao3he-progress-text';
+  progressText.textContent = 'Preparing...';
+  
+  const progressPercentage = document.createElement('span');
+  progressPercentage.className = 'ao3he-progress-percentage';
+  progressPercentage.textContent = '0%';
+  
+  progressInfo.appendChild(progressText);
+  progressInfo.appendChild(progressPercentage);
+  
+  // Create progress bar
+  const progressBarContainer = document.createElement('div');
+  progressBarContainer.className = 'ao3he-progress-bar-container';
+  
+  const progressBar = document.createElement('div');
+  progressBar.className = 'ao3he-progress-bar';
+  progressBar.style.width = '0%';
+  
+  progressBarContainer.appendChild(progressBar);
+  
+  // Create controls
+  const progressControls = document.createElement('div');
+  progressControls.className = 'ao3he-progress-controls';
+  
+  const pauseBtn = document.createElement('button');
+  pauseBtn.className = 'action ao3he-pause-button';
+  pauseBtn.textContent = 'Pause';
+  
+  const cancelBtn = document.createElement('button');
+  cancelBtn.className = 'action ao3he-cancel-button';
+  cancelBtn.textContent = 'Cancel';
+  
+  progressControls.appendChild(pauseBtn);
+  progressControls.appendChild(cancelBtn);
+  
+  // Assemble progress container
+  progressContainer.appendChild(progressInfo);
+  progressContainer.appendChild(progressBarContainer);
+  progressContainer.appendChild(progressControls);
   
   // Create status message div (initially hidden)
   const statusMessage = document.createElement('div');
   statusMessage.className = 'ao3he-status-message';
   statusMessage.style.display = 'none'; // Initially hidden
+  
+  // Add elements to the container
+  container.appendChild(button);
+  container.appendChild(progressContainer);
   container.appendChild(statusMessage);
   
-  // Add event listener for cancel button
-  const cancelButton = progressContainer.querySelector('.ao3he-cancel-button');
-  cancelButton.addEventListener('click', cancelExtractionProcess);
+  // Add event listeners
+  pauseBtn.addEventListener('click', togglePauseExtractionProcess);
+  cancelBtn.addEventListener('click', cancelExtractionProcess);
 }
 
 // ----- Extraction Process Control ----- //
@@ -453,9 +479,9 @@ function extractWorkData(workElement, pageNumber) {
     const completionElement = workElement.querySelector('.iswip');
     const completion = completionElement ? (completionElement.getAttribute('title') || completionElement.textContent.trim()) : 'Unknown';
     
-    // Summary - Fixed selector based on the actual HTML structure
+    // Summary - Fixed selector and using textContent instead of innerHTML
     const summaryElement = workElement.querySelector('blockquote.userstuff.summary');
-    const summary = summaryElement ? summaryElement.innerHTML.trim() : '';
+    const summary = summaryElement ? summaryElement.textContent.trim() : '';
     
     // Tags - explicitly separated by category
     const relationshipTags = Array.from(workElement.querySelectorAll('.tags .relationships a')).map(el => ({
@@ -598,33 +624,49 @@ function offerDownload(works, isPartial = false) {
   const blob = new Blob([jsonData], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
   
-  // Create download button
+  // Create download container
   const downloadContainer = document.createElement('div');
   downloadContainer.className = 'ao3he-download-container';
   
   const fileName = isPartial ? 'ao3_history_partial.json' : 'ao3_history.json';
   
-  downloadContainer.innerHTML = `
-    <p>${isPartial ? 'Collected partial data:' : 'Successfully collected'} ${works.length} works!</p>
-    <div class="ao3he-download-options">
-      <a href="${url}" download="${fileName}" class="action ao3he-download-button">Download JSON</a>
-      <button class="action ao3he-webapp-button">Open in Web App</button>
-    </div>
-  `;
+  // Create elements using safe DOM methods
+  const statusMsg = document.createElement('p');
+  statusMsg.textContent = `${isPartial ? 'Collected partial data:' : 'Successfully collected'} ${works.length} works!`;
+  
+  const downloadOptions = document.createElement('div');
+  downloadOptions.className = 'ao3he-download-options';
+  
+  const downloadLink = document.createElement('a');
+  downloadLink.href = url;
+  downloadLink.download = fileName;
+  downloadLink.className = 'action ao3he-download-button';
+  downloadLink.textContent = 'Download JSON';
+  
+  const webAppBtn = document.createElement('button');
+  webAppBtn.className = 'action ao3he-webapp-button';
+  webAppBtn.textContent = 'Open in Web App';
+  
+  downloadOptions.appendChild(downloadLink);
+  downloadOptions.appendChild(webAppBtn);
+  
+  downloadContainer.appendChild(statusMsg);
+  downloadContainer.appendChild(downloadOptions);
   
   // Update the progress container
   const progressContainer = document.querySelector('.ao3he-progress-container');
-  progressContainer.innerHTML = '';
+  // Remove existing content safely
+  while (progressContainer.firstChild) {
+    progressContainer.removeChild(progressContainer.firstChild);
+  }
   progressContainer.appendChild(downloadContainer);
   
   // Add event listener for web app button
-  const webAppButton = downloadContainer.querySelector('.ao3he-webapp-button');
-  webAppButton.addEventListener('click', () => {
+  webAppBtn.addEventListener('click', () => {
     // Base64 encode the data for URL parameter
     const encodedData = btoa(unescape(encodeURIComponent(jsonData)));
     
     // Open the web app with the data
-    // Note: Replace with actual web app URL when available
     window.open(`https://ao3-history.nazalibhai.com/?data=${encodedData}`, '_blank');
   });
 }
@@ -705,7 +747,7 @@ async function continueExtractionProcess() {
   }
 }
 
-// Create a new function to handle the paused state UI
+// Create a function to handle the paused state UI
 function offerPausedDownload(works) {
   // Prepare the JSON data for potential download
   const jsonData = JSON.stringify(works, null, 2);
@@ -716,12 +758,23 @@ function offerPausedDownload(works) {
   const pausedContainer = document.createElement('div');
   pausedContainer.className = 'ao3he-paused-container';
   
-  pausedContainer.innerHTML = `
-    <p>Paused at page ${currentExtractionPage}. Collected ${works.length} works so far.</p>
-    <div class="ao3he-paused-options">
-      <a href="${url}" download="ao3_history_partial.json" class="action ao3he-download-button">Download Partial JSON</a>
-    </div>
-  `;
+  // Create elements using safe DOM methods
+  const pauseMsg = document.createElement('p');
+  pauseMsg.textContent = `Paused at page ${currentExtractionPage}. Collected ${works.length} works so far.`;
+  
+  const pausedOptions = document.createElement('div');
+  pausedOptions.className = 'ao3he-paused-options';
+  
+  const pausedDownloadLink = document.createElement('a');
+  pausedDownloadLink.href = url;
+  pausedDownloadLink.download = 'ao3_history_partial.json';
+  pausedDownloadLink.className = 'action ao3he-download-button';
+  pausedDownloadLink.textContent = 'Download Partial JSON';
+  
+  pausedOptions.appendChild(pausedDownloadLink);
+  
+  pausedContainer.appendChild(pauseMsg);
+  pausedContainer.appendChild(pausedOptions);
   
   // Add below the progress bar but keep progress UI intact
   const progressContainer = document.querySelector('.ao3he-progress-container');
