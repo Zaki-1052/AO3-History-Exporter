@@ -34,16 +34,32 @@ This tool is available in two formats:
 
 ## Installation
 
+This extension is now available as a **Firefox Add-On**: 
+
+### **[Install Here](https://addons.mozilla.org/en-US/firefox/addon/ao3-history-exporter/)
+
+The following are alternative methods for Chromium-based browsers or if you want greater control over the installation.
+
 ### Method 1: Browser Extension (Manual Installation)
 
 1. Download or clone this repository
-2. Open your browser's extension management page:
-   - Chrome: Navigate to `chrome://extensions/`
-   - Firefox: Navigate to `about:addons`
-   - Edge: Navigate to `edge://extensions/`
-3. Enable "Developer mode"
-4. Click "Load unpacked" (Chrome/Edge) or "Load Temporary Add-on" (Firefox)
-5. Select the folder containing this repository
+
+2. **For Chrome:**
+   - Navigate to `chrome://extensions/`
+   - Enable "Developer mode" (toggle in top-right corner)
+   - Click "Load unpacked"
+   - Select the folder containing this repository
+
+3. **For Firefox:**
+   - Navigate to `about:debugging#/runtime/this-firefox`
+   - Click "Load Temporary Add-on"
+   - Select any file in the repository folder (usually manifest.json)
+
+4. **For Edge:**
+   - Navigate to `edge://extensions/`
+   - Enable "Developer mode" (toggle in left sidebar)
+   - Click "Load unpacked"
+   - Select the folder containing this repository
 
 ### Method 2: Tampermonkey Script
 
@@ -89,14 +105,14 @@ The tool works by:
 
 ### Web App Integration
 
-A companion web app is under development that will allow you to:
+The companion web app will allow you to:
 - Upload your exported JSON file
 - Visualize your reading patterns
 - Filter and search through your history
-- Generate statistics about your reading habits
-- Create charts and graphs of your fandom preferences
+- See statistics about your reading habits
+- View charts and graphs of your fandom preferences
 
-The export tool currently includes a placeholder "Open in Web App" button that will be activated when the web app is released.
+The export tool includes an "Open in Web App" button, and you can access the completed web app at **[[https://ao3-history.nazalibhai.com/](https://ao3-history.nazalibhai.com/)**.
 
 ## Privacy
 
@@ -108,15 +124,3 @@ This tool runs entirely in your browser. Your reading history data is:
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Contributing
-
-Contributions are welcome! If you'd like to improve the AO3 History Explorer:
-1. Fork the repository
-2. Create your feature branch
-3. Make your changes
-4. Submit a pull request
-
-## Acknowledgments
-
-- [Archive of Our Own (AO3)](https://archiveofourown.org/)
