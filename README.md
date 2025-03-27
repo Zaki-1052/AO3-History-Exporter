@@ -36,7 +36,7 @@ This tool is available in two formats:
 
 This extension is now available as a **Firefox Add-On**: 
 
-### **[Install Here](https://addons.mozilla.org/en-US/firefox/addon/ao3-history-exporter/)
+### **[Install Here](https://addons.mozilla.org/en-US/firefox/addon/ao3-history-exporter/)**
 
 The following are alternative methods for Chromium-based browsers or if you want greater control over the installation.
 
