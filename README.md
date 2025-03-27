@@ -44,9 +44,9 @@ The following are alternative methods for Chromium-based browsers or if you want
 
 1. Download or clone this repository
 
-2. **For Chrome:**
-   - Navigate to `chrome://extensions/`
-   - Enable "Developer mode" (toggle in top-right corner)
+2. **For Chrome/Edge:**
+   - Navigate to `chrome://extensions/` or `edge://extensions/`
+   - Enable "Developer mode" (toggle in top-right corner or left sidebar)
    - Click "Load unpacked"
    - Select the folder containing this repository
 
@@ -54,12 +54,6 @@ The following are alternative methods for Chromium-based browsers or if you want
    - Navigate to `about:debugging#/runtime/this-firefox`
    - Click "Load Temporary Add-on"
    - Select any file in the repository folder (usually manifest.json)
-
-4. **For Edge:**
-   - Navigate to `edge://extensions/`
-   - Enable "Developer mode" (toggle in left sidebar)
-   - Click "Load unpacked"
-   - Select the folder containing this repository
 
 ### Method 2: Tampermonkey Script
 
