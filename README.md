@@ -106,7 +106,7 @@ The companion web app will allow you to:
 - See statistics about your reading habits
 - View charts and graphs of your fandom preferences
 
-The export tool includes an "Open in Web App" button, and you can access the completed web app at **[[https://ao3-history.nazalibhai.com/](https://ao3-history.nazalibhai.com/)**.
+The export tool includes an "Open in Web App" button, and you can access the completed web app at **[https://ao3-history.nazalibhai.com/](https://ao3-history.nazalibhai.com/)**.
 
 ## Privacy
 
